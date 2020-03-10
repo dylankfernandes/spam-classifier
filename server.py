@@ -5,7 +5,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
-from models.dataframe import get_dataframe
 
 app = Flask(__name__)
 
