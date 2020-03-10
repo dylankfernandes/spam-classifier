@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Spam Classifier</h1>
+<p>Enter your message below</p>
+<form class="form-group" action="/predict" method="POST">
+  <textarea name="submission" class="form-control" id="submission" row="10"></textarea>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-dark">
+      <input type="radio" name="options" id="nb_option" autocomplete="off" active> Naive Bayes
+    </label>
+    <label class="btn btn-dark">
+      <input type="radio" name="options" id="lr_option" autocomplete="off"> Logistic Regression
+    </label>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Classify</button>
+</form>
+{% endblock %}
