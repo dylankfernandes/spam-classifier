@@ -1,4 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<h1>Spam Classifier</h1>
+<p>Enter your message below</p>
+<form class="form-group" action="/predict" method="POST">
+  <textarea name="submission" class="form-control" id="submission" row="10"></textarea>
+  <button type="submit" class="btn btn-primary">Classify</button>
+</form>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
 {% endblock %}
