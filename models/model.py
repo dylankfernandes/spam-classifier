@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 import joblib
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -26,4 +28,9 @@ predictions = clf.predict(X_test)
 accuracy = metrics.accuracy_score(y_test, predictions)
 
 print(f"Logistic Regression Model Accuracy: {(accuracy * 100).round(2)}%")
+
+sns.heatmap(metrics.confusion_matrix(y_test, predictions), annot=True)
+plt.title("Confusion Matrix")
+plt.show()
+
 joblib.dump(clf, 'saved/model.joblib')
