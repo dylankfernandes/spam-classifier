@@ -1,6 +1,11 @@
 # HooHacks + MLC@UVA Demo - Spam Classification App
 Built with Flask and Scikit-Learn.
 
+## Prerequisites
+Make sure that you have the following
+* Python 3+ and pip (which comes with Python 3+)
+* A Unix command line (for windows users, I personally recommend [Git Bash](https://gitforwindows.org/)). This isn't strictly necessary to complete the workshop, but if you don't want the packages installed globally, this is required.
+
 ## Workshop Instructions
 If you're going to be participating in the workshop, then download the starter code from the `hoohacks-starter` branch either by running `git clone https://github.com/dylankfernandes/spam-classifier.git -b hoohacks-starter` or downloading the branch as a zip file.
 
