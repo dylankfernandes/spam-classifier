@@ -13,7 +13,8 @@ def main():
 def classify():
   if request.method == "POST":
     message = request.form['submission']
-    return render_template('index.html', classification=list(model.predict([message]))[0])
+    classification=list(model.predict([message]))
+    return render_template('index.html', classification=classification)
 
 if __name__ == '__main__':
   app.run(debug=True)

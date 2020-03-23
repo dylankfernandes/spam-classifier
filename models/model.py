@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 
-df = pd.read_csv('saved/dataframe.csv', encoding = "ISO-8859-1")
+df = pd.read_csv('models/saved/dataframe.csv', encoding = "ISO-8859-1")
 
 X = df['message']
 y = df['label']
@@ -29,8 +29,8 @@ accuracy = metrics.accuracy_score(y_test, predictions)
 
 print(f"Logistic Regression Model Accuracy: {(accuracy * 100).round(2)}%")
 
-sns.heatmap(metrics.confusion_matrix(y_test, predictions), annot=True)
-plt.title("Confusion Matrix")
-plt.show()
+# sns.heatmap(metrics.confusion_matrix(y_test, predictions), annot=True)
+# plt.title("Confusion Matrix")
+# plt.show()
 
-joblib.dump(clf, 'saved/model.joblib')
+joblib.dump(clf, 'models/saved/model.joblib')
