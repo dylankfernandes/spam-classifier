@@ -1,2 +1,4 @@
 /venv
-models/saved
+models/saved/dataframe.csv
+models/saved/model.joblib
+models/__pycache__
