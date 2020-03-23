@@ -21,3 +21,4 @@ To actually run the demo, complete the following steps
 5. Run `python3 models/save_df.py`. This will save the cleaned dataframe as a csv under the `saved` directory.
 6. Run `python3 models/model.py`. This will build the model and save it as a `.joblib` file under the `saved` directory. 
 7. Run `python3 server.py`, after making sure that the `saved/` directory contains both the `dataframe.csv` and `model.joblib` files.
+8. After you are finished using your app, `deactivate` your virtual environment.
