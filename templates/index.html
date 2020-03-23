@@ -7,7 +7,7 @@
   <button type="submit" class="btn btn-primary">Classify</button>
 </form>
 {% if classification %}
-{% if classification == "ham"%}
+{% if classification[0] == 0 %}
 <p>Not Spam</p>
 {% else %}
 <p>Spam</p>
