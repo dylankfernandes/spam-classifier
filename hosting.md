@@ -31,9 +31,7 @@ if __name__ == '__main__':
   app.run(debug=True)
 ```
 
-We can run the app using `python server.py`.  At this point, the app should look like the following.
-
-![1584472649942](C:\Users\dylankfernandes\AppData\Roaming\Typora\typora-user-images\1584472649942.png)
+We can run the app using `python server.py`.  
 
 ## 3. Building Our UI
 
@@ -56,8 +54,6 @@ if __name__ == '__main__':
   app.run(debug=True)
 ```
 
-![1584473457419](C:\Users\dylankfernandes\AppData\Roaming\Typora\typora-user-images\1584473457419.png)
-
 3. Build the user interface
 
 ```html
@@ -69,8 +65,6 @@ if __name__ == '__main__':
   <button type="submit" class="btn btn-primary">Classify</button>
 </form>
 ```
-
-![1584473535959](C:\Users\dylankfernandes\AppData\Roaming\Typora\typora-user-images\1584473535959.png)
 
 ## 4. Sending Our Message to Our Server
 
@@ -149,7 +143,7 @@ df['label'] = le.transform(df['label'])
 
 ```python
 # models/save_df.py
-df.to_csv('saved/dataframe.csv')
+df.to_csv('models/saved/dataframe.csv')
 ```
 
 5. To run the file, enter the models directory and run the command `python save_df.py`. This should save a `dataframe.csv` into the `saved` folder.
@@ -160,7 +154,7 @@ df.to_csv('saved/dataframe.csv')
 
 ```python
 # models/models.py
-df = pd.read_csv('saved/dataframe.csv', encoding = "ISO-8859-1")
+df = pd.read_csv('models/saved/dataframe.csv', encoding = "ISO-8859-1")
 ```
 
 2. Separate the dataset into feature set and class.
@@ -209,17 +203,13 @@ predictions = clf.predict(X_test)
 # models/models.py
 accuracy = metrics.accuracy_score(y_test, predictions)
 print(f"Logistic Regression Model Accuracy: {(accuracy * 100).round(2)}%")
-
-sns.heatmap(metrics.confusion_matrix(y_test, predictions), annot=True)
-plt.title("Confusion Matrix")
-plt.show()
 ```
 
 8. Save our model to our file system.
 
 ```python
 # models/models.py
-joblib.dump(clf, 'saved/model.joblib')
+joblib.dump(clf, 'models/saved/model.joblib')
 ```
 
 ## 7. Classifying Spam
@@ -239,7 +229,8 @@ model = joblib.load('models/saved/model.joblib')
 def classify():
   if request.method == "POST":
     message = request.form['submission']
-    return render_template('index.html', classification=list(model.predict([message]))[0])
+    classification = list(model.predict([message]))
+    return render_template('index.html', classification=classification)
 ```
 
 3. Update the user interface to reflect the classification.
@@ -253,7 +244,7 @@ def classify():
   <button type="submit" class="btn btn-primary">Classify</button>
 </form>
 {% if classification %}
-{% if classification == "ham"%}
+{% if classification[0] == 0 %}
 <p>Not Spam</p>
 {% else %}
 <p>Spam</p>
