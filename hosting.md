@@ -256,4 +256,4 @@ def classify():
 
 1. Use a better model (neural net, SVM, etc.)
 2. Use a different metric of accuracy (area under the precision recall curve, etc.)
-3. Have fun with it!
+3. Show confidence level of classification
