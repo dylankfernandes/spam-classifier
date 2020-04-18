@@ -8,9 +8,15 @@
 </form>
 {% if classification %}
 {% if classification[0] == 0 %}
-<p>Not Spam</p>
+<div class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>All good!</strong> This message appears to be safe.
+  </div>
 {% else %}
-<p>Spam</p>
+<div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Careful!</strong> This message appears to be spam.
+  </div>
 {% endif %}
 {% endif %}
 {% endblock %}
