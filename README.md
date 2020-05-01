@@ -1,5 +1,5 @@
 # HooHacks + MLC@UVA Demo - Spam Classification App
-Built with Flask and Scikit-Learn. *Live example app hosted here: https://ml-spam-classifier.herokuapp.com/*
+Built with Flask and Scikit-Learn. **Live example app hosted here: https://ml-spam-classifier.herokuapp.com/**
 
 ## Prerequisites
 Make sure that you have the following
